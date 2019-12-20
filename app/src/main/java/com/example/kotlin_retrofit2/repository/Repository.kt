@@ -9,7 +9,6 @@ import io.reactivex.schedulers.Schedulers
 
 class Repository {
     val CODE_200 = 200
-    val CODE_201 = 201
     val LOG = "Hungpld1"
     var mListAndroidVersion: ArrayList<AndroidVersion> = ArrayList()
 
@@ -19,7 +18,7 @@ class Repository {
 
     @SuppressLint("CheckResult")
     fun handleRequestData(): ArrayList<AndroidVersion> {
-        MyAPI.createService().getAndroidVersion()
+        MyAPI.createService()!!.getAndroidVersion()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribe(
